@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fish It Scripts – Auto Fish, Auto Sell & Instant Catch Roblox 2025</title>
+  <link rel="canonical" href="https://fish-it-scripts.github.io/">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
+  <style>
+  .subnav {
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-top:10px;
+    flex-wrap:wrap;
+  }
+  .subnav a {
+    padding:8px 14px;
+    background:#0d3b52;
+    color:#00d9ff;
+    text-decoration:none;
+    border-radius:10px;
+    border:3px solid #051e2a;
+    font-weight:700;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.5);
+  }
+
+  .hero {
+    max-width:1100px;
+    margin: 18px auto;
+    padding:18px;
+    text-align:left;
+  }
+  .hero h1 { font-size:2rem; margin:0 0 6px; color:#e0f4ff; }
+  .hero p { margin:6px 0; line-height:1.45; color:#b3e0f2; }
+
+  .container {
+    max-width:1100px;
+    margin: 8px auto 40px;
+    padding: 0 12px;
+    display:grid;
+    gap:18px;
+    grid-template-columns: 1fr;
+  }
+
+  @media(min-width:900px){
+    .container { grid-template-columns: 1fr 360px; }
+  }
+
+  .card {
+    background: linear-gradient(180deg,#0d4a66 0%, #0a3349 100%);
+    padding:14px;
+    border-radius:12px;
+    border:4px solid #051e2a;
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.4);
+    overflow:hidden;
+    word-wrap:break-word;
+    margin-bottom:16px;
+  }
+
+  .card h3 {
+    color:#00d9ff;
+    text-shadow:2px 2px 0 #000;
+    margin-top:0;
+  }
+
+  .script-block {
+    background:#051e2a;
+    color:#00ff88;
+    padding:12px;
+    border-radius:10px;
+    font-family: "Courier New", monospace;
+    font-size:0.92rem;
+    max-height:360px;
+    overflow:auto;
+    border:4px solid #00d9ff;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    -webkit-overflow-scrolling: touch;
+    word-break:break-word;
+  }
+
+  @media (max-width:420px) {
+    .script-block {
+      max-height:240px;
+      font-size:0.88rem;
+      padding:10px;
+    }
+  }
+
+  .script-actions {
+    margin-top:10px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+
+  .btn-copy, .btn-download {
+    display:inline-block;
+    padding:10px 12px;
+    border-radius:10px;
+    background:#0099cc;
+    color:#fff;
+    text-decoration:none;
+    border:3px solid #051e2a;
+    box-shadow:4px 4px 0 #006699;
+    font-weight:800;
+    cursor:pointer;
+    min-width:110px;
+    text-align:center;
+    text-shadow:1px 1px 0 #000;
+  }
+
+  .btn-download {
+    background:#ff6b35;
+    color:#fff;
+    border:3px solid #051e2a;
+    box-shadow:4px 4px 0 #cc5529;
+  }
+
+  .small {
+    font-size:0.95rem;
+    color:#b3e0f2;
+  }
+
+  #toast {
+    position: fixed;
+    left:50%;
+    transform: translateX(-50%);
+    bottom:24px;
+    background: #0a3349;
+    color:#00d9ff;
+    padding:10px 16px;
+    border-radius:10px;
+    border:3px solid #051e2a;
+    display:none;
+    z-index:9999;
+    font-weight:800;
+    box-shadow:4px 4px 0 rgba(0,0,0,0.6);
+  }
+
+  body, html {
+    overflow-x: hidden;
+  }
+
+  @media (max-width:360px) {
+    .subnav a { padding:6px 10px; font-size:0.85rem; }
+    .hero h1 { font-size:1.4rem; }
+    .hero p { font-size:0.95rem; }
+    .btn-copy, .btn-download { min-width:90px; padding:8px 10px; font-size:0.9rem; }
+  }
+
+  .feature-table {
+    width:100%;
+    border-collapse:collapse;
+    margin:12px 0;
+    background:rgba(0,0,0,0.3);
+    border-radius:8px;
+    overflow:hidden;
+  }
+  
+  .feature-table th {
+    background:#ff6b35;
+    color:#fff;
+    padding:10px;
+    text-align:left;
+    font-weight:800;
+    border-bottom:3px solid #051e2a;
+  }
+  
+  .feature-table td {
+    padding:10px;
+    color:#b3e0f2;
+    border-bottom:1px solid rgba(0,217,255,0.1);
+  }
+  
+  .feature-table tr:last-child td {
+    border-bottom:none;
+  }
+
+  .warning-box {
+    background:#3d2a1f;
+    border:3px solid #ff6b35;
+    border-radius:10px;
+    padding:12px;
+    margin:12px 0;
+    color:#ffb399;
+    font-weight:700;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>🐟 Fish It</h1>
+    <h2>Scripts & Codes Hub</h2>
+    <div class="subnav" aria-label="site links">
+      <a href="/">Scripts</a>
+      <a href="codes.html">Codes</a>
+      <a href="sites.html">All Sites</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>Fish It Scripts Collection (100% Working)</h1>
+      <p>
+        Welcome to the ultimate Fish It scripts hub! These powerful scripts unlock Auto Fish, Auto Sell, Instant Catch, 
+        Teleport, Free Boat, and much more. With over 100,000 active players, Fish It is one of the hottest fishing games 
+        on Roblox right now. Each script below can be copied or downloaded as a `.lua` file for easy execution.
+      </p>
+      <div class="warning-box">
+        ⚠️ <strong>Important:</strong> Use scripts responsibly and at your own risk. Test in private servers when possible 
+        to avoid detection. Excessive use may result in account warnings or bans.
+      </div>
+    </div>
+
+    <div class="container">
+      <div>
+        <!-- Script 1 -->
+        <div class="card">
+          <h3>1. Fish It Hub — Auto Fish, Auto Sell, Instant Catch</h3>
+          <p class="small">Comprehensive automation for fishing, selling, and catching fish instantly without delay.</p>
+
+          <table class="feature-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Auto Fish</strong></td>
+                <td>Automatically casts your rod and reels in fish continuously.</td>
+              </tr>
+              <tr>
+                <td><strong>Auto Sell</strong></td>
+                <td>Sells all caught fish automatically when inventory is full.</td>
+              </tr>
+              <tr>
+                <td><strong>Instant Catch</strong></td>
+                <td>Removes waiting time and catches fish immediately.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script1">loadstring(game:HttpGet("https://pastebin.com/raw/jN2ABuUy",true))()</div>
+
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script1">Copy Script</button>
+            <button class="btn-download" data-target="script1" data-filename="fish_it_hub.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <!-- Script 2 -->
+        <div class="card">
+          <h3>2. HackManHub — Auto Perfect, ESP, Teleport</h3>
+          <p class="small">Advanced script with perfect catch automation, ESP features, and teleportation capabilities.</p>
+
+          <table class="feature-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Auto Perfect</strong></td>
+                <td>Achieves perfect catches every time for maximum rewards.</td>
+              </tr>
+              <tr>
+                <td><strong>ESP System</strong></td>
+                <td>Shows fish locations and rare spawns through walls.</td>
+              </tr>
+              <tr>
+                <td><strong>Teleport</strong></td>
+                <td>Instantly teleport to fishing spots or islands.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script2">script_key="PUT YOUR KEY HERE";
+loadstring(game:HttpGet("https://hackmanhub.pages.dev/loader.txt"))()</div>
+
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script2">Copy Script</button>
+            <button class="btn-download" data-target="script2" data-filename="hackman_hub.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <!-- Script 3 -->
+        <div class="card">
+          <h3>3. SyxHub — Auto Farm, Rare Fish, Anti-AFK</h3>
+          <p class="small">Complete farming solution with rare fish targeting and anti-AFK protection.</p>
+
+          <table class="feature-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Auto Farm</strong></td>
+                <td>Farms fish and coins automatically 24/7.</td>
+              </tr>
+              <tr>
+                <td><strong>Rare Fish Unlock</strong></td>
+                <td>Targets and prioritizes mythical and legendary fish.</td>
+              </tr>
+              <tr>
+                <td><strong>Anti-AFK</strong></td>
+                <td>Prevents kicks for inactivity during long farming sessions.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script3">loadstring(game:HttpGet("https://pastebin.com/raw/ef9cHvEk",true))()</div>
+
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script3">Copy Script</button>
+            <button class="btn-download" data-target="script3" data-filename="syx_hub.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <!-- Script 4 -->
+        <div class="card">
+          <h3>4. Chloe X — Auto Upgrade, Free Boat, Teleport Islands</h3>
+          <p class="small">Smart script that auto-purchases upgrades, spawns premium boats, and teleports between islands.</p>
+
+          <table class="feature-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Auto Upgrade</strong></td>
+                <td>Automatically buys rods, boats, and storage upgrades.</td>
+              </tr>
+              <tr>
+                <td><strong>Free Boat</strong></td>
+                <td>Spawns any boat including admin boats for free.</td>
+              </tr>
+              <tr>
+                <td><strong>Island Teleport</strong></td>
+                <td>Quick travel to any island on the map instantly.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script4">loadstring(game:HttpGet("https://raw.githubusercontent.com/MajestySkie/Chloe-X/main/Main/ChloeX"))()</div>
+
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script4">Copy Script</button>
+            <button class="btn-download" data-target="script4" data-filename="chloe_x.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <!-- Script 5 -->
+        <div class="card">
+          <h3>5. Zenith Hub — Infinite Jump, Speed, Auto Trade</h3>
+          <p class="small">Enhanced mobility script with infinite jump, speed boost, and automatic trading features.</p>
+
+          <table class="feature-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Infinite Jump</strong></td>
+                <td>Jump infinitely to reach any location on the map.</td>
+              </tr>
+              <tr>
+                <td><strong>Speed Boost</strong></td>
+                <td>Increases player and boat movement speed dramatically.</td>
+              </tr>
+              <tr>
+                <td><strong>Auto Trade</strong></td>
+                <td>Automatically accepts and completes fish trades.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script5">loadstring(game:HttpGet("https://raw.githubusercontent.com/rxito/ZenithHub/refs/heads/main/Loader"))()</div>
+
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script5">Copy Script</button>
+            <button class="btn-download" data-target="script5" data-filename="zenith_hub.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <!-- Remaining scripts 6-25 continue in similar format... -->
+        <!-- Script 6 -->
+        <div class="card">
+          <h3>6. Vinz Hub — Auto Click, Auto Perfect, Keyless</h3>
+          <p class="small">No-key script with auto-clicking and perfect catch mechanics for effortless fishing.</p>
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script6">loadstring(game:HttpGet("https://vinzhub.netlify.app/loader"))();</div>
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script6">Copy Script</button>
+            <button class="btn-download" data-target="script6" data-filename="vinz_hub.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <!-- Script 7 -->
+        <div class="card">
+          <h3>7. Speed Hub — Fast Auto Farm, Quick Sell</h3>
+          <p class="small">Optimized for speed with rapid farming and instant selling capabilities.</p>
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script7">loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()</div>
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script7">Copy Script</button>
+            <button class="btn-download" data-target="script7" data-filename="speed_hub.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <!-- Script 8 -->
+        <div class="card">
+          <h3>8. Hendar Hub — Complete Automation Suite</h3>
+          <p class="small">Full-featured hub with comprehensive automation for all Fish It game mechanics.</p>
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script8">loadstring(game:HttpGet("https://raw.githubusercontent.com/collectorhenfi-wq/Hendarscriptt/refs/heads/main/Fish%20it"))()</div>
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script8">Copy Script</button>
+            <button class="btn-download" data-target="script8" data-filename="hendar_hub.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <!-- Script 9 -->
+        <div class="card">
+          <h3>9. Thunder Hub — Lightning Fast Performance</h3>
+          <p class="small">High-performance script optimized for minimal lag and maximum efficiency.</p>
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script9">loadstring(game:HttpGet("https://raw.githubusercontent.com/NAVAAI098/Thunder-Hub/main/Loader.lua"))()</div>
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script9">Copy Script</button>
+            <button class="btn-download" data-target="script9" data-filename="thunder_hub.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <!-- Script 10 -->
+        <div class="card">
+          <h3>10. Project Madara — Auto Fish, Auto Sell, Auto Click, Auto Farm</h3>
+          <p class="small">Comprehensive all-in-one script combining fishing, selling, clicking, and farming automation.</p>
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script10">loadstring(game:HttpGet('https://raw.githubusercontent.com/IsThisMe01/Project-Madara/refs/heads/main/loader.lua'))();</div>
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script10">Copy Script</button>
+            <button class="btn-download" data-target="script10" data-filename="project_madara.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <!-- Scripts 11-25 continue... (abbreviated for length) -->
+        
+        <!-- Script 11 -->
+        <div class="card">
+          <h3>11. PC & Mobile — Auto Sell, Teleport, Spawn Boat, Auto Farm</h3>
+          <p class="small">Cross-platform compatible script working on both PC and mobile devices.</p>
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script11">loadstring(game:HttpGet("https://raw.githubusercontent.com/ZOKADA/zokadascript/refs/heads/main/Fishittt.lua"))()</div>
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script11">Copy Script</button>
+            <button class="btn-download" data-target="script11" data-filename="pc_mobile_fish_it.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <!-- Script 12 -->
+        <div class="card">
+          <h3>12. Jink X — Advanced GUI, Multi-Feature</h3>
+          <p class="small">Beautiful interface with extensive customization and multi-feature support.</p>
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script12">loadstring(game:HttpGet("https://raw.githubusercontent.com/stormskmonkey/JinkX/refs/heads/main/Loader.lua"))()</div>
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script12">Copy Script</button>
+            <button class="btn-download" data-target="script12" data-filename="jink_x.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <!-- Script 13 -->
+        <div class="card">
+          <h3>13. Karbid Hub — Auto Perfect, Auto Fish Instant, Auto Sell</h3>
+          <p class="small">Perfect accuracy automation with instant fishing and smart selling system.</p>
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script13">loadstring(game:HttpGet("https://raw.githubusercontent.com/karbid-dev/Karbid/main/zpp0kogh0t"))()</div>
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script13">Copy Script</button>
+            <button class="btn-download" data-target="script13" data-filename="karbid_hub.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <!-- Script 14 -->
+        <div class="card">
+          <h3>14. AldyToi Hub — Beginner Friendly Interface</h3>
+          <p class="small">Easy-to-use hub perfect for beginners with simple toggle controls.</p>
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script14">loadstring(game:HttpGet("https://pastebin.com/raw/Bp89QXZs",true))()</div>
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script14">Copy Script</button>
+            <button class="btn-download" data-target="script14" data-filename="aldytoi_hub.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <!-- Script 15 -->
+        <div class="card">
+          <h3>15. Sypher Hub — Premium Features</h3>
+          <p class="small">Premium-quality script with advanced features and regular updates.</p>
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script15">loadstring(game:HttpGet("https://pastefy.app/k2hIroUH/raw",true))()</div>
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script15">Copy Script</button>
+            <button class="btn-download" data-target="script15" data-filename="sypher_hub.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <!-- Script 16-25 continue in same format... -->
+        <!-- Script 16 -->
+        <div class="card">
+          <h3>16. Ashlabs Hub — Stable & Reliable</h3>
+          <p class="small">Rock-solid stability with consistent performance across all servers.</p>
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script16">loadstring(game:HttpGet("https://pastefy.app/Es2TXL5z/raw",true))()</div>
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script16">Copy Script</button>
+            <button class="btn-download" data-target="script16" data-filename="ashlabs_hub.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>17. Fish It Roblox GUI — Clean Interface</h3>
+          <p class="small">Minimalist GUI design with all essential features in one clean interface.</p>
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script17">loadstring(game:HttpGet("https://pastebin.com/raw/Xiqw3ujD",true))()</div>
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script17">Copy Script</button>
+            <button class="btn-download" data-target="script17" data-filename="fish_it_gui.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>18. Madbuk — Fish It Edition</h3>
+          <p class="small">Specialized Fish It version of the popular Madbuk hub.</p>
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script18">loadstring(game:HttpGet("https://raw.githubusercontent.com/Nobody6969696969/Madbuk/refs/heads/main/loader.lua", true))()</div>
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script18">Copy Script</button>
+            <button class="btn-download" data-target="script18" data-filename="madbuk_fish_it.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>19. Black Hub — Dark Theme, Powerful Features</h3>
+          <p class="small">Sleek dark-themed hub with powerful automation capabilities.</p>
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script19">loadstring(game:HttpGet("https://raw.githubusercontent.com/Skibidiking123/Fisch1/refs/heads/main/FischMain"))()</div>
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script19">Copy Script</button>
+            <button class="btn-download" data-target="script19" data-filename="black_hub.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>20. FrostByte — Fishing, Sell/Buy, Favoriting</h3>
+          <p class="small">Advanced script with favoriting system, smart buying, and selling automation.</p>
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script20">loadstring(game:HttpGet("https://init.frostbyte.lol"))()</div>
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script20">Copy Script</button>
+            <button class="btn-download" data-target="script20" data-filename="frostbyte.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>21. Fish It Keyless — No Key Required</h3>
+          <p class="small">Completely keyless script with instant access to all features.</p>
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script21">loadstring(game:HttpGet("https://gist.githubusercontent.com/OmarBinLadek/e8224cc7ed5faae9767235b3a978ed44/raw/569ca6b703826253068f015bbe465a1093f8cda9/usethisautokraken.lua"))()</div>
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script21">Copy Script</button>
+            <button class="btn-download" data-target="script21" data-filename="fish_it_keyless.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>22. Auto Perfect, Spawn Admin Boat, Auto Teleport</h3>
+          <p class="small">Perfect catches with admin boat spawning and smart teleportation system.</p>
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script22">loadstring(game:HttpGet("https://raw.githubusercontent.com/sylolua/PoopHub/refs/heads/main/Loader",true))()</div>
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script22">Copy Script</button>
+            <button class="btn-download" data-target="script22" data-filename="auto_perfect_boat.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>23. Kenniel Hub — Universal Loader</h3>
+          <p class="small">Universal hub supporting multiple games including Fish It with shared features.</p>
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script23">loadstring(game:HttpGet("https://raw.githubusercontent.com/Kenniel123/Universal-Loader/refs/heads/main/MultiGame"))()</div>
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script23">Copy Script</button>
+            <button class="btn-download" data-target="script23" data-filename="kenniel_hub.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>24. Free Fish It Keyless — Community Edition</h3>
+          <p class="small">Free community-made script with no key system and regular updates.</p>
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script24">loadstring(game:HttpGet("https://gist.githubusercontent.com/OmarBinLadek/7f4eeb233ff11a91125e4405343472d4/raw/87d0d535b8db7592999426bdcb8a9ee7d3977330/FishANDeat.lua"))()</div>
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script24">Copy Script</button>
+            <button class="btn-download" data-target="script24" data-filename="free_keyless.lua">Download .lua</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>25. Instant Catch Script — Zero Wait Time</h3>
+          <p class="small">Ultimate speed script that catches fish with absolutely zero waiting time.</p>
+          <h4 style="margin-top:8px; margin-bottom:6px; color:#b3e0f2;">Script</h4>
+          <div class="script-block" id="script25">loadstring(game:HttpGet("https://raw.githubusercontent.com/mazino45/main/refs/heads/main/MainScript.lua"))()</div>
+          <div class="script-actions">
+            <button class="btn-copy" data-target="script25">Copy Script</button>
+            <button class="btn-download" data-target="script25" data-filename="instant_catch.lua">Download .lua</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- right sidebar -->
+      <aside>
+        <div class="card">
+          <h3>What Is A Fish It Script?</h3>
+          <p class="small">
+            A Fish It script is a custom Lua-based code designed for Roblox fishing games. These scripts automate tedious 
+            tasks like casting your rod, waiting for fish, and selling your catch. With over 100,000 active players using 
+            these tools, Fish It scripts have become essential for serious fishermen.
+          </p>
+          <p class="small">
+            Once activated through a Roblox executor, the script provides a custom GUI with powerful features like Auto Fish, 
+            Instant Catch, Auto Sell, Teleport, and much more. This eliminates repetitive gameplay and lets you progress faster.
+          </p>
+
+          <h3 style="margin-top:16px;">Key Features</h3>
+          <table class="feature-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Auto Fish</strong></td>
+                <td>Automatically casts and reels in your fishing rod continuously.</td>
+              </tr>
+              <tr>
+                <td><strong>Instant Catch</strong></td>
+                <td>Removes waiting time and catches fish immediately.</td>
+              </tr>
+              <tr>
+                <td><strong>Auto Sell</strong></td>
+                <td>Automatically sells all fish when inventory is full.</td>
+              </tr>
+              <tr>
+                <td><strong>Rare Fish Unlock</strong></td>
+                <td>Prioritizes catching rare, mythical, and legendary fish.</td>
+              </tr>
+              <tr>
+                <td><strong>Auto Upgrade</strong></td>
+                <td>Buys better rods, boats, and storage automatically.</td>
+              </tr>
+              <tr>
+                <td><strong>Teleport</strong></td>
+                <td>Instantly travel to any island or fishing spot.</td>
+              </tr>
+              <tr>
+                <td><strong>Free Boat</strong></td>
+                <td>Spawns any boat including premium and admin boats.</td>
+              </tr>
+              <tr>
+                <td><strong>Anti-AFK</strong></td>
+                <td>Prevents kicks for inactivity during long sessions.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>How To Use Fish It Scripts</h3>
+          <p class="small">
+            Using Fish It scripts requires a Roblox executor. Follow these steps to get started with automatic fishing 
+            and advanced features.
+          </p>
+
+          <ol class="small" style="padding-left:20px;">
+            <li style="margin-bottom:8px;"><strong>Download Executor:</strong> Get KRNL, Delta, Cryptic, Codex, or Fluxus. For mobile: Fluxus Android, Codex iOS, Delta iOS.</li>
+            <li style="margin-bottom:8px;"><strong>Install & Setup:</strong> Complete installation and unlock with key if required.</li>
+            <li style="margin-bottom:8px;"><strong>Launch Fish It:</strong> Open Roblox and join the Fish It game.</li>
+            <li style="margin-bottom:8px;"><strong>Inject Executor:</strong> Click "Inject" or "Attach" to connect the executor to Roblox.</li>
+            <li style="margin-bottom:8px;"><strong>Copy Script:</strong> Use the "Copy Script" button on any script above.</li>
+            <li style="margin-bottom:8px;"><strong>Paste & Execute:</strong> Paste the script into the executor and click "Execute" to activate.</li>
+          </ol>
+
+          <div class="warning-box" style="margin-top:12px;">
+            ⚠️ Always test scripts in private servers first. Roblox may flag accounts using scripts in public servers.
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>Why Players Use Fish It Scripts</h3>
+          
+          <p class="small" style="margin-top:12px;">
+            <strong style="color:#00d9ff;">Time Efficiency</strong><br>
+            Tasks that normally take hours can be completed in minutes. Auto fishing and selling means you can progress 
+            while doing other things.
+          </p>
+
+          <p class="small" style="margin-top:12px;">
+            <strong style="color:#00d9ff;">Competitive Advantage</strong><br>
+            Climb leaderboards faster by catching more fish than manual players. Get rare fish easily and dominate the game.
+          </p>
+
+          <p class="small" style="margin-top:12px;">
+            <strong style="color:#00d9ff;">Stress-Free Gameplay</strong><br>
+            Remove the repetitive grind and focus on enjoying the game. Scripts handle the boring parts automatically.
+          </p>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>Frequently Asked Questions</h3>
+          
+          <p class="small" style="margin-top:12px;">
+            <strong style="color:#00d9ff;">Q: Are Fish It scripts safe to use?</strong><br>
+            Scripts are technically safe when from trusted sources, but using any script carries risk of account warnings or bans. Always use private servers when testing.
+          </p>
+
+          <p class="small" style="margin-top:12px;">
+            <strong style="color:#00d9ff;">Q: Do I need a key for these scripts?</strong><br>
+            Most scripts listed are keyless or have simple key systems. Scripts marked "keyless" work immediately without authentication.
+          </p>
+
+          <p class="small" style="margin-top:12px;">
+            <strong style="color:#00d9ff;">Q: Can I use scripts on mobile?</strong><br>
+            Yes! Scripts marked "PC & Mobile" work on both platforms. Use mobile executors like Fluxus or Codex iOS.
+          </p>
+
+          <p class="small" style="margin-top:12px;">
+            <strong style="color:#00d9ff;">Q: Will scripts help me catch rare fish?</strong><br>
+            Absolutely. Many scripts include "Rare Fish Priority" features that specifically target legendary and mythical fish.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Fish It Community — scripts shared by players. Not affiliated with Roblox.</p>
+  </footer>
+
+  <div id="toast" role="status" aria-live="polite">Copied!</div>
+
+  <script>
+    (function(){
+      const toast = document.getElementById('toast');
+
+      function showToast(msg='Copied!') {
+        toast.textContent = msg;
+        toast.style.display = 'block';
+        toast.style.opacity = '1';
+        clearTimeout(window._toastTimer);
+        window._toastTimer = setTimeout(()=>{
+          toast.style.opacity = '0';
+          setTimeout(()=> toast.style.display = 'none', 300);
+        }, 1600);
+      }
+
+      document.querySelectorAll('.btn-copy').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const targetId = btn.getAttribute('data-target');
+          const el = document.getElementById(targetId);
+          if(!el) return;
+          const text = el.textContent || el.innerText || '';
+          if(navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(()=>{
+              showToast('Script copied to clipboard');
+              const old = btn.textContent;
+              btn.textContent = 'Copied!';
+              setTimeout(()=> btn.textContent = old, 1200);
+            }).catch(()=> fallbackCopy(text));
+          } else {
+            fallbackCopy(text);
+          }
+
+          function fallbackCopy(txt){
+            const ta = document.createElement('textarea');
+            ta.value = txt;
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+              document.execCommand('copy');
+              showToast('Script copied to clipboard');
+            } catch(e) {
+              showToast('Copy failed — select manually');
+            }
+            document.body.removeChild(ta);
+          }
+        });
+      });
+
+      document.querySelectorAll('.btn-download').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const targetId = btn.getAttribute('data-target');
+          const filename = btn.getAttribute('data-filename') || 'script.lua';
+          const el = document.getElementById(targetId);
+          if(!el) return;
+          const text = el.textContent || el.innerText || '';
+          const blob = new Blob([text], {type: 'text/plain;charset=utf-8'});
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = filename;
+          document.body.appendChild(a);
+          a.click();
+          setTimeout(()=>{
+            URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+          }, 250);
+          showToast('Download started: ' + filename);
+        });
+      });
+
+    })();
+  </script>
+</body>
+</html>

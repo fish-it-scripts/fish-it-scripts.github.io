@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fish It Codes (Active) - November 2025</title>
+  <link rel="canonical" href="https://fish-it-scripts.github.io/codes.html">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .subnav {
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      margin-top:10px;
+    }
+    .subnav a {
+      padding:8px 14px;
+      background:#0d3b52;
+      color:#00d9ff;
+      text-decoration:none;
+      border-radius:10px;
+      border:3px solid #051e2a;
+      font-weight:700;
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.5);
+    }
+    .hero {
+      max-width:1100px;
+      margin: 18px auto;
+      padding:18px;
+      text-align:left;
+    }
+    .hero h1 { font-size:2rem; margin:0 0 6px; color:#e0f4ff; }
+    .hero p { margin:6px 0; line-height:1.5; color:#b3e0f2; }
+    .section-title {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin: 18px auto 8px;
+      max-width:1100px;
+      padding:0 12px;
+    }
+    .section-title h2 {
+      margin:0;
+      color:#00d9ff;
+      text-shadow: 2px 2px 0 #000;
+      font-size:1.4rem;
+    }
+    .cards {
+      display:grid;
+      gap:14px;
+      grid-template-columns: repeat(1, 1fr);
+      max-width:1100px;
+      margin: 8px auto 24px;
+      padding:0 12px;
+    }
+    @media(min-width:700px){
+      .cards { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media(min-width:1000px){
+      .cards { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .code-card {
+      background: linear-gradient(180deg,#0d4a66 0%, #0a3349 100%);
+      padding:14px;
+      border-radius:12px;
+      border:4px solid #051e2a;
+      box-shadow: 6px 6px 0 rgba(0,0,0,0.4);
+      position:relative;
+    }
+    .code-card .tag {
+      position:absolute;
+      top:10px;
+      right:10px;
+      padding:6px 8px;
+      border-radius:8px;
+      font-weight:800;
+      font-size:0.85rem;
+      color:#fff;
+      background:#ff6b35;
+      border:3px solid #051e2a;
+      text-shadow:1px 1px 0 #000;
+    }
+    .code-value {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-top:10px;
+      flex-wrap:wrap;
+    }
+    .code-badge {
+      font-family: "Courier New", monospace;
+      font-size:1.15rem;
+      padding:10px 12px;
+      border-radius:8px;
+      background:#051e2a;
+      border:3px solid #00d9ff;
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.5);
+      letter-spacing:1px;
+      font-weight:900;
+      color:#00d9ff;
+    }
+    .reward {
+      margin-top:10px;
+      font-weight:700;
+      color:#b3e0f2;
+      text-shadow:1px 1px 0 #000;
+    }
+    .card-actions {
+      display:flex;
+      gap:8px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+    .btn-copy {
+      display:inline-block;
+      padding:10px 12px;
+      border-radius:10px;
+      background:#0099cc;
+      color:#fff;
+      text-decoration:none;
+      border:3px solid #051e2a;
+      box-shadow:4px 4px 0 #006699;
+      font-weight:800;
+      cursor:pointer;
+      text-shadow:1px 1px 0 #000;
+    }
+    .btn-visit {
+      display:inline-block;
+      padding:10px 12px;
+      border-radius:10px;
+      background:#ff6b35;
+      color:#fff;
+      text-decoration:none;
+      border:3px solid #051e2a;
+      box-shadow:4px 4px 0 #cc5529;
+      font-weight:800;
+      text-shadow:1px 1px 0 #000;
+    }
+
+    .expired-list {
+      max-width:1100px;
+      margin:8px auto 60px;
+      padding:0 12px;
+    }
+    .expired-item {
+      background:#1a3344;
+      border-radius:10px;
+      padding:10px;
+      margin-bottom:10px;
+      border:3px dashed #0d4a66;
+      color:#6b9aaa;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    #toast {
+      position: fixed;
+      left:50%;
+      transform: translateX(-50%);
+      bottom:24px;
+      background: #0a3349;
+      color:#00d9ff;
+      padding:10px 16px;
+      border-radius:10px;
+      border:3px solid #051e2a;
+      display:none;
+      z-index:9999;
+      font-weight:800;
+      box-shadow:4px 4px 0 rgba(0,0,0,0.6);
+    }
+
+    .content-block {
+      max-width:1100px;
+      margin: 8px auto 40px;
+      padding:12px;
+      text-align:left;
+      color:#b3e0f2;
+    }
+
+    .content-block h3 {
+      color:#00d9ff;
+      text-shadow:2px 2px 0 #000;
+    }
+
+    .hint {
+      display:inline-block;
+      background:#0d4a66;
+      padding:6px 10px;
+      border-radius:8px;
+      border:3px solid #051e2a;
+      font-weight:800;
+      color:#b3e0f2;
+      margin-top:6px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🐟 Fish It</h1>
+    <h2>Scripts & Codes Hub</h2>
+    <div class="subnav" aria-label="site links">
+      <a href="/">Scripts</a>
+      <a href="codes.html">Codes</a>
+      <a href="sites.html">All Sites</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>All New Fish It Codes (November 2025)</h1>
+      <p>
+        Even though I love fishing in real life, most video games make it feel like I'm yanking weeds out of the ocean 
+        instead of reeling in a big catch. However, Fish It on Roblox is a fishing simulator that actually lets you vibe 
+        while tossing your line without turning every fish into a boss battle. Want to get a head start before you start 
+        the grind? We've compiled all the active Fish It codes for you that offer free cash, potions, and other free rewards.
+      </p>
+      <p>
+        So, stop looking like a level 1 fisherman and start catching something that doesn't look like it belongs in a pet store tank.
+      </p>
+      <p class="hint">Tip: Click the <strong>Copy</strong> button on a code card to copy the code instantly and paste it into the game.</p>
+    </div>
+
+    <div class="section-title">
+      <h2>All New Fish It Codes</h2>
+      <div style="font-size:0.95rem; color:#b3e0f2">Updated: <strong>November 2025</strong></div>
+    </div>
+
+    <div class="cards" aria-live="polite">
+      <!-- Card 1 -->
+      <article class="code-card" aria-label="Code PURPLEMOON">
+        <div class="tag">NEW</div>
+        <div>
+          <strong style="color:#e0f4ff">PURPLEMOON</strong>
+          <div class="reward">Reward: Exclusive Bait</div>
+        </div>
+
+        <div class="code-value">
+          <div class="code-badge">PURPLEMOON</div>
+          <div class="card-actions">
+            <button class="btn-copy" data-code="PURPLEMOON" aria-label="Copy PURPLEMOON">Copy</button>
+            <a class="btn-visit" href="#redeem" onclick="document.querySelector('.content-block').scrollIntoView({behavior:'smooth'});return false;">How to Redeem</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="code-card" aria-label="Code CRYSTALS">
+        <div class="tag">Active</div>
+        <div>
+          <strong style="color:#e0f4ff">CRYSTALS</strong>
+          <div class="reward">Reward: Luck II Potions</div>
+        </div>
+
+        <div class="code-value">
+          <div class="code-badge">CRYSTALS</div>
+          <div class="card-actions">
+            <button class="btn-copy" data-code="CRYSTALS" aria-label="Copy CRYSTALS">Copy</button>
+            <a class="btn-visit" href="#redeem" onclick="document.querySelector('.content-block').scrollIntoView({behavior:'smooth'});return false;">How to Redeem</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="code-card" aria-label="Code BLAMETALON">
+        <div class="tag">Active</div>
+        <div>
+          <strong style="color:#e0f4ff">BLAMETALON</strong>
+          <div class="reward">Reward: Luck II Potions</div>
+        </div>
+
+        <div class="code-value">
+          <div class="code-badge">BLAMETALON</div>
+          <div class="card-actions">
+            <button class="btn-copy" data-code="BLAMETALON" aria-label="Copy BLAMETALON">Copy</button>
+            <a class="btn-visit" href="#redeem" onclick="document.querySelector('.content-block').scrollIntoView({behavior:'smooth'});return false;">How to Redeem</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="code-card" aria-label="Code SORRY">
+        <div class="tag">Active</div>
+        <div>
+          <strong style="color:#e0f4ff">SORRY</strong>
+          <div class="reward">Reward: Exclusive Bait</div>
+        </div>
+
+        <div class="code-value">
+          <div class="code-badge">SORRY</div>
+          <div class="card-actions">
+            <button class="btn-copy" data-code="SORRY" aria-label="Copy SORRY">Copy</button>
+            <a class="btn-visit" href="#redeem" onclick="document.querySelector('.content-block').scrollIntoView({behavior:'smooth'});return false;">How to Redeem</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="section-title">
+      <h2>Expired Fish It Codes</h2>
+      <div style="font-size:0.95rem; color:#b3e0f2">These codes no longer work</div>
+    </div>
+
+    <div class="expired-list" aria-live="polite">
+      <div class="expired-item">
+        <span><strong>TRAVEL</strong> — No longer working</span>
+        <span style="color:#ff6b35; font-weight:800;">Expired</span>
+      </div>
+      <div class="expired-item">
+        <span><strong>MEGA</strong> — No longer working</span>
+        <span style="color:#ff6b35; font-weight:800;">Expired</span>
+      </div>
+      <div class="expired-item">
+        <span><strong>ARMOR</strong> — No longer working</span>
+        <span style="color:#ff6b35; font-weight:800;">Expired</span>
+      </div>
+      <div class="expired-item">
+        <span><strong>SHARKSSS</strong> — No longer working</span>
+        <span style="color:#ff6b35; font-weight:800;">Expired</span>
+      </div>
+      <div class="expired-item">
+        <span><strong>100M</strong> — No longer working</span>
+        <span style="color:#ff6b35; font-weight:800;">Expired</span>
+      </div>
+      <div class="expired-item">
+        <span><strong>MUTATE</strong> — No longer working</span>
+        <span style="color:#ff6b35; font-weight:800;">Expired</span>
+      </div>
+      <div class="expired-item">
+        <span><strong>WOWSPINS</strong> — No longer working</span>
+        <span style="color:#ff6b35; font-weight:800;">Expired</span>
+      </div>
+      <div class="expired-item">
+        <span><strong>SORRYSPINS</strong> — No longer working</span>
+        <span style="color:#ff6b35; font-weight:800;">Expired</span>
+      </div>
+      <div class="expired-item">
+        <span><strong>FREEBIES</strong> — No longer working</span>
+        <span style="color:#ff6b35; font-weight:800;">Expired</span>
+      </div>
+      <div class="expired-item">
+        <span><strong>THEWHEEL</strong> — No longer working</span>
+        <span style="color:#ff6b35; font-weight:800;">Expired</span>
+      </div>
+      <div class="expired-item">
+        <span><strong>INDO</strong> — No longer working</span>
+        <span style="color:#ff6b35; font-weight:800;">Expired</span>
+      </div>
+      <div class="expired-item">
+        <span><strong>LOST</strong> — No longer working</span>
+        <span style="color:#ff6b35; font-weight:800;">Expired</span>
+      </div>
+      <div class="expired-item">
+        <span><strong>HUNTING</strong> — No longer working</span>
+        <span style="color:#ff6b35; font-weight:800;">Expired</span>
+      </div>
+      <div class="expired-item">
+        <span><strong>EGGS</strong> — No longer working</span>
+        <span style="color:#ff6b35; font-weight:800;">Expired</span>
+      </div>
+      <div class="expired-item">
+        <span><strong>FISHING</strong> — No longer working</span>
+        <span style="color:#ff6b35; font-weight:800;">Expired</span>
+      </div>
+      <div class="expired-item">
+        <span><strong>BIGUPD</strong> — No longer working</span>
+        <span style="color:#ff6b35; font-weight:800;">Expired</span>
+      </div>
+      <div class="expired-item">
+        <span><strong>LOBSTAH</strong> — No longer working</span>
+        <span style="color:#ff6b35; font-weight:800;">Expired</span>
+      </div>
+      <div class="expired-item">
+        <span><strong>CONSOLE</strong> — No longer working</span>
+        <span style="color:#ff6b35; font-weight:800;">Expired</span>
+      </div>
+      <div class="expired-item">
+        <span><strong>VALENTINE</strong> — No longer working</span>
+        <span style="color:#ff6b35; font-weight:800;">Expired</span>
+      </div>
+      <div class="expired-item">
+        <span><strong>XMAS2024</strong> — No longer working</span>
+        <span style="color:#ff6b35; font-weight:800;">Expired</span>
+      </div>
+    </div>
+
+    <section class="content-block" id="redeem">
+      <h3>How to Redeem Fish It Codes</h3>
+      <p>
+        Catching the rarest fish can be hard, but redeeming the latest codes for Fish It is simple. Here is how to do so:
+      </p>
+      <ol>
+        <li>Launch the <strong>Fish It</strong> experience on Roblox.</li>
+        <li>Click the <strong>Shopping cart icon</strong> at the top of the screen.</li>
+        <li>Type a working code in the <strong>Enter Code</strong> area.</li>
+        <li>Click the <strong>Redeem</strong> button to claim rewards.</li>
+      </ol>
+
+      <h3>How to Get More Fish It Codes</h3>
+      <p>
+        To get the latest codes, staying connected with us is your best bet. You can <strong>bookmark this page</strong> to never 
+        miss out on new codes for Fish It. We are always on the lookout for working codes while weeding out the expired ones. 
+        Alternatively, you can follow the developer's official socials and see if they've shared any new codes.
+      </p>
+      <p>
+        The ideal place to check first is the <strong>official Fish It Discord server</strong>. In this server, you can find 
+        the new codes in three different channels: <strong>announcements</strong>, <strong>games-codes</strong>, and 
+        <strong>game-updates</strong>. You can also find more information about the latest updates on the Fish Atelier Roblox 
+        community. Joining the group will also get you free rewards, including the exclusive rod.
+      </p>
+
+      <h3>Why Are My Fish It Codes Not Working?</h3>
+      <p>
+        When the Fish It codes drop, the game client gets a new update, so make sure you wait for the servers to refresh first. 
+        Check for typos if you are getting an error while redeeming them. We suggest you copy the code from our list for no hassle. 
+        As there are schedules for the code expiry, if your redemption is not working, it can mean the code is already invalid. 
+        Be sure to return to our page and check if it is already in the expired codes section.
+      </p>
+
+      <h3>Frequently Asked Questions</h3>
+      <dl>
+        <dt style="color:#00d9ff;font-weight:800;margin-top:10px;">Are there codes in Fish It?</dt>
+        <dd>Yes! Fish It regularly releases promo codes that give free rewards like cash, potions, exclusive bait, and other 
+        valuable items. Check the active codes list above and redeem them before they expire.</dd>
+
+        <dt style="color:#00d9ff;font-weight:800;margin-top:10px;">What is the new code for Fish It?</dt>
+        <dd>The newest code is <strong>PURPLEMOON</strong>, which gives you Exclusive Bait. Make sure to redeem it quickly 
+        as new codes can expire at any time. Bookmark this page to stay updated with the latest codes!</dd>
+
+        <dt style="color:#00d9ff;font-weight:800;margin-top:10px;">Why can't I redeem codes in Fish It?</dt>
+        <dd>If you can't redeem codes, make sure you're typing them exactly as shown (they're case-sensitive). The code might 
+        also be expired, or the servers might need to refresh after a new update. Wait a few minutes and try again. If it still 
+        doesn't work, check our expired codes section to see if it's no longer valid.</dd>
+      </dl>
+
+      <p style="margin-top:20px; font-style:italic; color:#b3e0f2;">
+        So, what is the rarest fish you have caught in Fish It so far? Keep fishing and good luck catching those legendary fish!
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Fish It Community — content curated for players. Not affiliated with Roblox.</p>
+  </footer>
+
+  <div id="toast" role="status" aria-live="polite">Copied!</div>
+
+  <script>
+    (function(){
+      const toast = document.getElementById('toast');
+
+      function showToast(msg='Copied!') {
+        toast.textContent = msg;
+        toast.style.display = 'block';
+        toast.style.opacity = '1';
+        clearTimeout(window._toastTimer);
+        window._toastTimer = setTimeout(()=>{
+          toast.style.opacity = '0';
+          setTimeout(()=> toast.style.display = 'none', 300);
+        }, 1600);
+      }
+
+      document.querySelectorAll('.btn-copy').forEach(btn=>{
+        btn.addEventListener('click', async (e)=>{
+          const code = btn.getAttribute('data-code') || '';
+          if(!code) return;
+          try {
+            await navigator.clipboard.writeText(code);
+            showToast('Code copied: ' + code.toUpperCase());
+            const old = btn.textContent;
+            btn.textContent = 'Copied!';
+            setTimeout(()=> btn.textContent = old, 1200);
+          } catch(err) {
+            const ta = document.createElement('textarea');
+            ta.value = code;
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand('copy'); showToast('Code copied: ' + code.toUpperCase()); }
+            catch(e){ showToast('Copy failed — select manually'); }
+            document.body.removeChild(ta);
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
